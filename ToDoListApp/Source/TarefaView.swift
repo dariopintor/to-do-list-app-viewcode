@@ -1,15 +1,6 @@
-//
-//  NovaTarefaView.swift
-//  ToDoListApp
-//
-//  Created by Dario Pintor on 17/07/24.
-//
-
-import Foundation
-
 import UIKit
 
-class NovaTarefaView: UITableViewCell {
+class TarefaView: UITableViewCell {
     static let identifier = "TaskTableViewCell"
 
     let titleLabel: UILabel = {
@@ -39,7 +30,7 @@ class NovaTarefaView: UITableViewCell {
         ])
     }
 
-    func configure(with task: Task) {
-        titleLabel.text = task.title
+    func configure(with title: String) {
+        titleLabel.text = title
     }
 }
