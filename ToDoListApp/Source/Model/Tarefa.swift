@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task {
+struct Tarefa {
     var title: String
     var isCompleted: Bool = false
 }

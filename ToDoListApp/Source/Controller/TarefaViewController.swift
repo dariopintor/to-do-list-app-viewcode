@@ -2,7 +2,7 @@ import UIKit
 
 class TarefaViewController: UIViewController {
 
-    private var tasks: [Task] = []
+    private var tasks: [Tarefa] = []
     private let taskView = TarefaView()
 
     override func loadView() {
@@ -26,7 +26,7 @@ class TarefaViewController: UIViewController {
         
         let addAction = UIAlertAction(title: "Adionar nova tarefa", style: .default) { [weak self] _ in
             if let taskTitle = alertController.textFields?.first?.text, !taskTitle.isEmpty {
-                let task = Task(title: taskTitle)
+                let task = Tarefa(title: taskTitle)
                 self?.tasks.append(task)
                 self?.taskView.tableView.reloadData()
             }
