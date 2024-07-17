@@ -20,7 +20,7 @@ class TarefaView: UIView {
     
     let addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Adionar Tarefa", for: .normal)
+        button.setTitle("Adiconar Tarefa", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

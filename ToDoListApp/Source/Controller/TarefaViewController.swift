@@ -1,14 +1,14 @@
 import UIKit
 
 class TarefaViewController: UIViewController {
-
-    private var tasks: [Tarefa] = []
+    
+    private var taskViewModel = TarefaViewModel()
     private let taskView = TarefaView()
-
+    
     override func loadView() {
         view = taskView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "To-Do List"
@@ -24,10 +24,9 @@ class TarefaViewController: UIViewController {
             textField.placeholder = "Nome da Tarefa"
         }
         
-        let addAction = UIAlertAction(title: "Adionar nova tarefa", style: .default) { [weak self] _ in
+        let addAction = UIAlertAction(title: "Adionar", style: .default) { [weak self] _ in
             if let taskTitle = alertController.textFields?.first?.text, !taskTitle.isEmpty {
-                let task = Tarefa(title: taskTitle)
-                self?.tasks.append(task)
+                self?.taskViewModel.addTask(title: taskTitle)
                 self?.taskView.tableView.reloadData()
             }
         }
@@ -42,20 +41,16 @@ class TarefaViewController: UIViewController {
 }
 
 extension TarefaViewController: UITableViewDataSource, UITableViewDelegate {
-    // MARK: - UITableViewDataSource
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return taskViewModel.tasksCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NovaTarefaView.identifier, for: indexPath) as! NovaTarefaView
-        
-        cell.configure(with: tasks[indexPath.row])
+        let task = taskViewModel.task(at: indexPath.row)
+        cell.configure(with: task.title)
         return cell
     }
-    
-    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

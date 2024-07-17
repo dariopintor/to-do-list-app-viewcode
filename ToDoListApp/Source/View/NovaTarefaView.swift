@@ -9,6 +9,8 @@ import Foundation
 
 import UIKit
 
+import UIKit
+
 class NovaTarefaView: UITableViewCell {
     static let identifier = "TaskTableViewCell"
 
@@ -39,7 +41,7 @@ class NovaTarefaView: UITableViewCell {
         ])
     }
 
-    func configure(with task: Task) {
-        titleLabel.text = task.title
+    func configure(with title: String) {
+        titleLabel.text = title
     }
 }

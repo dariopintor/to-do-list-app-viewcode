@@ -17,6 +17,7 @@
 		41E930EC2C47E426004A20DB /* TarefaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930EB2C47E426004A20DB /* TarefaView.swift */; };
 		41E930EE2C47E443004A20DB /* TarefaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930ED2C47E443004A20DB /* TarefaViewController.swift */; };
 		41E930F02C4835BC004A20DB /* NovaTarefaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930EF2C4835BC004A20DB /* NovaTarefaView.swift */; };
+		41E930F32C483D9C004A20DB /* TarefaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930F22C483D9C004A20DB /* TarefaViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		41E930EB2C47E426004A20DB /* TarefaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaView.swift; sourceTree = "<group>"; };
 		41E930ED2C47E443004A20DB /* TarefaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaViewController.swift; sourceTree = "<group>"; };
 		41E930EF2C4835BC004A20DB /* NovaTarefaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaTarefaView.swift; sourceTree = "<group>"; };
+		41E930F22C483D9C004A20DB /* TarefaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		41E930E52C47E3B1004A20DB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				41E930F12C483D78004A20DB /* ViewModel */,
 				41E930E82C47E3D4004A20DB /* Controller */,
 				41E930E72C47E3CC004A20DB /* View */,
 				41E930E62C47E3C1004A20DB /* Model */,
@@ -117,6 +120,14 @@
 				41E930ED2C47E443004A20DB /* TarefaViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		41E930F12C483D78004A20DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				41E930F22C483D9C004A20DB /* TarefaViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				41E930D12C47E372004A20DB /* AppDelegate.swift in Sources */,
 				41E930EA2C47E3F0004A20DB /* Tarefa.swift in Sources */,
 				41E930D32C47E372004A20DB /* SceneDelegate.swift in Sources */,
+				41E930F32C483D9C004A20DB /* TarefaViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
