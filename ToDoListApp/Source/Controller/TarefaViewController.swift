@@ -3,10 +3,20 @@ import UIKit
 class TarefaViewController: UIViewController {
 
     private var tasks: [Tarefa] = []
-    private let taskView = TarefaView()
+    private let taskView: TarefaView
 
     override func loadView() {
         view = taskView
+    }
+    
+    // Inicializador customizado
+        init() {
+            self.taskView = TarefaView()
+            super.init(nibName: nil, bundle: nil)
+        }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
