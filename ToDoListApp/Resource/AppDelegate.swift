@@ -20,10 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            _ application: UIApplication,
            didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
        ) -> Bool {
-           window = UIWindow(frame: UIScreen.main.bounds)
-           let navController = UINavigationController(rootViewController: TarefaViewController())
-           window?.rootViewController = navController
-           window?.makeKeyAndVisible()
+          
            return true
        }
     // MARK: UISceneSession Lifecycle
