@@ -7,19 +7,19 @@
 
 import Foundation
 
+
 class TarefaViewModel {
-    private var tasks: [Tarefa] = []
-    
-    var tasksCount: Int {
-        return tasks.count
+    private let taskModel = TarefaModel()
+
+    var tasks: [String] {
+        return taskModel.tasks
     }
-    
-    func task(at index: Int) -> Tarefa {
-        return tasks[index]
+
+    var taskCount: Int {
+        return taskModel.tasks.count
     }
-    
-    func addTask(title: String) {
-        let task = Tarefa(title: title)
-        tasks.append(task)
+
+    func addTask(_ task: String) {
+        taskModel.addTask(task)
     }
 }

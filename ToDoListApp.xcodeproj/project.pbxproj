@@ -13,7 +13,7 @@
 		41E930D82C47E372004A20DB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41E930D72C47E372004A20DB /* Base */; };
 		41E930DA2C47E375004A20DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E930D92C47E375004A20DB /* Assets.xcassets */; };
 		41E930DD2C47E375004A20DB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41E930DC2C47E375004A20DB /* Base */; };
-		41E930EA2C47E3F0004A20DB /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930E92C47E3F0004A20DB /* Tarefa.swift */; };
+		41E930EA2C47E3F0004A20DB /* TarefaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930E92C47E3F0004A20DB /* TarefaModel.swift */; };
 		41E930EC2C47E426004A20DB /* TarefaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930EB2C47E426004A20DB /* TarefaView.swift */; };
 		41E930EE2C47E443004A20DB /* TarefaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930ED2C47E443004A20DB /* TarefaViewController.swift */; };
 		41E930F02C4835BC004A20DB /* NovaTarefaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E930EF2C4835BC004A20DB /* NovaTarefaView.swift */; };
@@ -29,7 +29,7 @@
 		41E930D92C47E375004A20DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41E930DC2C47E375004A20DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41E930DE2C47E375004A20DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41E930E92C47E3F0004A20DB /* Tarefa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
+		41E930E92C47E3F0004A20DB /* TarefaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaModel.swift; sourceTree = "<group>"; };
 		41E930EB2C47E426004A20DB /* TarefaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaView.swift; sourceTree = "<group>"; };
 		41E930ED2C47E443004A20DB /* TarefaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefaViewController.swift; sourceTree = "<group>"; };
 		41E930EF2C4835BC004A20DB /* NovaTarefaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaTarefaView.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		41E930E62C47E3C1004A20DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				41E930E92C47E3F0004A20DB /* Tarefa.swift */,
+				41E930E92C47E3F0004A20DB /* TarefaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,7 +206,7 @@
 				41E930F02C4835BC004A20DB /* NovaTarefaView.swift in Sources */,
 				41E930D52C47E372004A20DB /* ViewController.swift in Sources */,
 				41E930D12C47E372004A20DB /* AppDelegate.swift in Sources */,
-				41E930EA2C47E3F0004A20DB /* Tarefa.swift in Sources */,
+				41E930EA2C47E3F0004A20DB /* TarefaModel.swift in Sources */,
 				41E930D32C47E372004A20DB /* SceneDelegate.swift in Sources */,
 				41E930F32C483D9C004A20DB /* TarefaViewModel.swift in Sources */,
 			);
