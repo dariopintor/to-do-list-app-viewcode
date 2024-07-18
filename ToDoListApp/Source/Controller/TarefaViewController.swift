@@ -2,8 +2,22 @@ import UIKit
 
 class TarefaViewController: UIViewController {
     
-    private var taskViewModel = TarefaViewModel()
-    private let taskView = TarefaView()
+    private var taskViewModel: TarefaViewModel
+    
+    
+    init(taskViewModel: TarefaViewModel) {
+        self.taskViewModel = taskViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    lazy var taskView: TarefaView = {
+        let taskView = TarefaView(viewModel: taskViewModel)
+        return taskView
+    } ( )
     
     override func loadView() {
         view = taskView

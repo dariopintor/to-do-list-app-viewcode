@@ -10,7 +10,15 @@ import UIKit
 import UIKit
 
 class TarefaView: UIView {
-
+    var viewModel: TarefaViewModel
+    
+    init(viewModel: TarefaViewModel){
+        self.viewModel = viewModel
+        super.init(frame: .zero)
+        setupViews()
+        setupConstraints()
+    }
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,11 +33,7 @@ class TarefaView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupConstraints()
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

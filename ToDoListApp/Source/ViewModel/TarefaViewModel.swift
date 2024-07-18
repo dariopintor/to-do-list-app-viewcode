@@ -10,6 +10,12 @@ import Foundation
 class TarefaViewModel {
     private var tasks: [Tarefa] = []
     
+    var coordinator: TarefaCoordinator
+    
+    init(coordinator: TarefaCoordinator) {
+        self.coordinator = coordinator
+    }
+    
     var tasksCount: Int {
         return tasks.count
     }
