@@ -7,10 +7,15 @@
 
 import Foundation
 import UIKit
-import UIKit
+
+protocol TarefaViewDelegate: AnyObject {
+    func didRequestAddTask()
+    func didAddTask(named name: String)
+}
 
 class TarefaView: UIView {
-
+    weak var delegate: TarefaViewDelegate?
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +25,7 @@ class TarefaView: UIView {
     
     let addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Adionar Tarefa", for: .normal)
+        button.setTitle("Adicionar Tarefa", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -36,8 +41,11 @@ class TarefaView: UIView {
     }
     
     private func setupViews() {
+        backgroundColor = .white
         addSubview(tableView)
         addSubview(addButton)
+        
+        addButton.addTarget(self, action: #selector(requestAddTask), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -53,5 +61,8 @@ class TarefaView: UIView {
             addButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
+    @objc private func requestAddTask() {
+        delegate?.didRequestAddTask()
+    }
 }
-

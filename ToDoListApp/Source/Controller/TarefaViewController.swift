@@ -1,74 +1,62 @@
 import UIKit
 
 class TarefaViewController: UIViewController {
+    var taskModel = TarefaModel()
 
-    private var tasks: [Tarefa] = []
-    private let taskView: TarefaView
+    private lazy var tarefaView: TarefaView = {
+        let view = TarefaView()
+        view.delegate = self
+        view.tableView.dataSource = self
+        view.tableView.delegate = self
+        return view
+    }()
 
     override func loadView() {
-        view = taskView
+        view = tarefaView
     }
-    
-    // Inicializador customizado
-        init() {
-            self.taskView = TarefaView()
-            super.init(nibName: nil, bundle: nil)
-        }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "To-Do List"
-        
-        taskView.tableView.dataSource = self
-        taskView.tableView.delegate = self
-        taskView.addButton.addTarget(self, action: #selector(addTask), for: .touchUpInside)
     }
-    
-    @objc private func addTask() {
+}
+
+extension TarefaViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return taskModel.tasks.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NovaTarefaView.identifier, for: indexPath) as! NovaTarefaView
+        cell.configure(with: taskModel.tasks[indexPath.row])
+        return cell
+    }
+}
+
+extension TarefaViewController: TarefaViewDelegate {
+    func didRequestAddTask() {
         let alertController = UIAlertController(title: "Nova Tarefa", message: "Entre com o nome da tarefa", preferredStyle: .alert)
         alertController.addTextField { textField in
-            textField.placeholder = "Nome da Tarefa"
+            textField.placeholder = "Nome da tarefa"
         }
         
-        let addAction = UIAlertAction(title: "Adionar nova tarefa", style: .default) { [weak self] _ in
+        let addAction = UIAlertAction(title: "Adicionar", style: .default) { [weak self] _ in
             if let taskTitle = alertController.textFields?.first?.text, !taskTitle.isEmpty {
-                let task = Tarefa(title: taskTitle)
-                self?.tasks.append(task)
-                self?.taskView.tableView.reloadData()
+                self?.taskModel.addTask(taskTitle)
+                self?.tarefaView.tableView.reloadData()
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
     }
-}
 
-extension TarefaViewController: UITableViewDataSource, UITableViewDelegate {
-    // MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NovaTarefaView.identifier, for: indexPath) as! NovaTarefaView
-        
-        cell.configure(with: tasks[indexPath.row])
-        return cell
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        // Handle task selection
+    func didAddTask(named name: String) {
+        taskModel.addTask(name)
+        tarefaView.tableView.reloadData()
     }
 }
