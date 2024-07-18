@@ -39,7 +39,7 @@ class NovaTarefaView: UITableViewCell {
         ])
     }
 
-    func configure(with task: Task) {
+    func configure(with task: Tarefa) {
         titleLabel.text = task.title
     }
 }
